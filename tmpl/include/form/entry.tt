@@ -1,3 +1,6 @@
 <input type="text" name="title" /><br />
 <textarea name="body" cols="80" rows="30"></textarea><br />
-<input type="text" name="format" value="html" /><br />
+<select name="format">
+    <option value="hatena" selected="selected">hatena</option>
+    <option value="html">html</option>
+</select><br />
