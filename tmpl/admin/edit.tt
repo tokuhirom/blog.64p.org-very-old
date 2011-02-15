@@ -1,0 +1,11 @@
+[% INCLUDE 'include/header.tt' %]
+
+<h1>Update entry</h1>
+
+<form method="post" action="/admin/do_edit">
+    [% INCLUDE 'include/form/entry.tt' %]
+    <input type="hidden" name="entry_id" value="[% entry_id %]" />
+    <input type="submit" value="update" />
+</form>
+
+[% INCLUDE 'include/footer.tt' %]

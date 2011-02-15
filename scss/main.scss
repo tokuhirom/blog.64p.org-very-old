@@ -1,0 +1,40 @@
+@import "meyer-reset";
+@import "typography";
+
+body {
+    margin: auto;
+    width: 960px;
+}
+
+body > header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    a {
+        text-decoration: none;
+    }
+}
+
+section {
+    margin-bottom: 20px;
+
+    .entry-header {
+        font-size: 140%;
+        margin-bottom: 20px;
+    }
+
+    footer {
+        & > div {
+            display: inline;
+        }
+    }
+}
+
+body > footer {
+    text-align: right;
+    color: #cccccc;
+
+    a {
+        color: #999999;
+    }
+}
+

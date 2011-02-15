@@ -1,0 +1,7 @@
+Makefile
+inc/
+MANIFEST
+*.bak
+*.old
+nytprof.out
+.sass-cache/

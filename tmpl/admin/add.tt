@@ -1,0 +1,10 @@
+[% INCLUDE 'include/header.tt' %]
+
+<h1>Create new entry</h1>
+
+<form method="post" action="/admin/do_add">
+    [% INCLUDE 'include/form/entry.tt' %]
+    <input type="submit" value="add" />
+</form>
+
+[% INCLUDE 'include/footer.tt' %]
