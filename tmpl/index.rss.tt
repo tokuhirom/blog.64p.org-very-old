@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xml:lang="ja">
+  <channel>
+    <title>blog.64p.org</title>
+    <link>http://blog.64p.org/</link>
+    <description>blog.64p.org</description>
+    [% FOR entry IN entries %]
+    <item>
+      <title>[% entry.title %]</title>
+      <link>http://blog.64p.org/entry/[% entry.entry_id %]</link>
+      <description><![CDATA[[% entry.html | raw %]]]></description>
+      <dc:creator>tokuhirom</dc:creator>
+      <pubDate>[% entry.mtime | time2str %]</pubDate>
+    </item>
+    [% END %]
+  </channel>
+</rss>

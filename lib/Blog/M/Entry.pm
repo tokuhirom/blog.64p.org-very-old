@@ -16,7 +16,7 @@ sub search {
          ;
 
     my $entries = $c->dbh->selectall_arrayref(
-        q{SELECT entry_id, title, body as html, mtime FROM entry ORDER BY entry_id DESC LIMIT ? OFFSET ?},
+        q{SELECT entry_id, title, body, html, mtime FROM entry ORDER BY entry_id DESC LIMIT ? OFFSET ?},
         {Slice => {}},
         $entries_per_page + 1,
         $entries_per_page * ($current_page-1),

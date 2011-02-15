@@ -22,6 +22,19 @@ any '/' => sub {
     });
 };
 
+any '/index.rss' => sub {
+    my ($c) = @_;
+
+    my ($entries, $has_next) = Blog::M::Entry->search(
+        entries_per_page => 20,
+        current_page     => 1,
+    );
+
+    $c->render('index.rss.tt', {
+        entries => $entries,
+    });
+};
+
 get '/entry/{entry_id}' => sub {
     my ($c, $args) = @_;
     my $entry_id = $args->{entry_id};
