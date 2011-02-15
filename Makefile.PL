@@ -8,6 +8,8 @@ requires 'Text::Xslate::Bridge::TT2Like';
 requires 'Plack::Middleware::ReverseProxy';
 requires 'HTML::FillInForm::Lite';
 requires 'Time::Piece';
+requires 'Text::Xatena';
+requires 'Smart::Args';
 
 recursive_author_tests('xt');
 

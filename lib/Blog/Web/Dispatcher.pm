@@ -18,6 +18,7 @@ any '/' => sub {
     $c->render('index.tt', {
         entries => $entries,
         has_next => $has_next,
+        page     => $current_page,
     });
 };
 

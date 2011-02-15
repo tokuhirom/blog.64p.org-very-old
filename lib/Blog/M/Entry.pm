@@ -6,6 +6,7 @@ use 5.12.2;
 package Blog::M::Entry;
 use Amon2::Declare;
 use Smart::Args;
+use Text::Xatena;
 
 sub search {
     args my $class,
@@ -47,16 +48,8 @@ sub insert {
          my $c      => {default => c()},
          ;
 
-    my $html;
-    given ($format) {
-    when ('html') {
-        $html = $body; # nop
-    }
-    default {
-        die "unknown format: '$format'";
-    }
-    }
 
+    my $html = $class->format_entry(format => $format, body => $body);
     $c->dbh->insert(
         entry => {
             title  => $title,
@@ -78,6 +71,10 @@ sub format_entry {
     given ($format) {
     when ('html') {
         return $body; # nop
+    }
+    when ('hatena') {
+        my $xatena = Text::Xatena->new();
+        return $xatena->format($body);
     }
     default {
         die "unknown format: '$format'";

@@ -4,4 +4,6 @@
     [% INCLUDE 'include/part/entry.tt' WITH entry=entry %]
 [% END %]
 
+[% IF has_next %]<a href="[% uri_with({page => page+1}) %]" rel="next">more</a>[% END %]
+
 [% INCLUDE 'include/footer.tt' %]
