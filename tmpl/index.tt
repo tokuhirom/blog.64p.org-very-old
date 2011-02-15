@@ -1,15 +1,7 @@
 [% INCLUDE 'include/header.tt' %]
 
 [% FOR entry IN entries %]
-<section>
-    <div class="entry-header">[% entry.title %]</div>
-    [% entry.html | raw %]
-    <footer>
-        <div class="mtime">[% entry.mtime %]</div>
-        <div class="permalink"><a href="/entry/[% entry.entry_id %]">permalink</a></div>
-        <div class="admin"><a href="/admin/edit?entry_id=[% entry.entry_id %]">edit</a></div>
-    </footer>
-</section>
+    [% INCLUDE 'include/part/entry.tt' WITH entry=entry %]
 [% END %]
 
 [% INCLUDE 'include/footer.tt' %]
