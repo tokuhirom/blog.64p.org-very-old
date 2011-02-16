@@ -42,9 +42,18 @@ use Tiffany::Text::Xslate;
 # load plugins
 __PACKAGE__->load_plugins('Web::FillInFormLite');
 __PACKAGE__->load_plugins('Web::CSRFDefender');
+
+use HTTP::Session::Store::File;
+use File::Path qw/mkpath/;
+my $session_path = "/tmp/blog.session.$<";
+mkpath $session_path, 1;
 __PACKAGE__->load_plugins('Web::HTTPSession' => {
     state => 'Cookie',
-    store => 'OnMemory',
+    store => sub {
+        HTTP::Session::Store::File->new(
+            dir => $session_path
+        ),
+    }
 });
 # __PACKAGE__->load_plugins('Web::NoCache');
 
