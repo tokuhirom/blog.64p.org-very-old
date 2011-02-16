@@ -30,9 +30,11 @@ any '/index.rss' => sub {
         current_page     => 1,
     );
 
-    $c->render('index.rss.tt', {
+    my $res = $c->render('index.rss.tt', {
         entries => $entries,
     });
+    $res->content_type('application/xml; charset=UTF-8');
+    return $res;
 };
 
 get '/entry/{entry_id}' => sub {
