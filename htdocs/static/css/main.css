@@ -286,6 +286,9 @@ section {
   section .entry-header {
     font-size: 140%;
     margin-bottom: 20px; }
+  section b {
+    font-weight: bold;
+    font-size: 140%; }
   section footer > div {
     display: inline; }
 
