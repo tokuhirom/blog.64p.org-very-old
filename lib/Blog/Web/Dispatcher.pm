@@ -43,6 +43,7 @@ get '/entry/{entry_id}' => sub {
     my $entry = Blog::M::Entry->retrieve(entry_id => $entry_id) // $c->res_404();
     $c->render('entry.tt', {
         entry => $entry,
+        title => "$entry->{title} - blog.64p.org",
     });
 };
 
