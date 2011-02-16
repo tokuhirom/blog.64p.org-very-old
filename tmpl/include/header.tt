@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Style-Type" content="text/css" />  
     <meta http-equiv="Content-Script-Type" content="text/javascript" />  
     
-    <link href="[% uri_for('/static/css/main.css') %]" rel="stylesheet" type="text/css" media="screen" />
+    <link href="[% uri_for('/static/css/main.css?v=2') %]" rel="stylesheet" type="text/css" media="screen" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.64p.org/index.rss">
 </head>
 <body>
