@@ -1,5 +1,5 @@
 <section>
-    <div class="entry-header">[% entry.title %]</div>
+    <div class="entry-header"><a href="/entry/[% entry.entry_id %]">[% entry.title %]</a></div>
     [% entry.html | raw %]
     <footer>
         <div class="ctime">[% entry.ctime %]</div>
