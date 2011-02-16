@@ -286,6 +286,9 @@ section {
   section .entry-header {
     font-size: 140%;
     margin-bottom: 20px; }
+    section .entry-header a {
+      text-decoration: none;
+      color: black; }
   section b {
     font-weight: bold;
     font-size: 140%; }
