@@ -20,6 +20,11 @@ section {
     .entry-header {
         font-size: 140%;
         margin-bottom: 20px;
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
     }
 
     b {
