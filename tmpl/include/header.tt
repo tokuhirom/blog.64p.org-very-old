@@ -10,7 +10,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.64p.org/index.rss">
     <script src="/static/js/jquery-1.5.min.js" type="text/javascript"></script> 
     <script src="/static/js/require.min.js" type="text/javascript"></script> 
-    <script src="/static/js/main.js?v=1" type="text/javascript"></script> 
+    <script src="/static/js/main.js?v=3" type="text/javascript"></script> 
 </head>
 <body>
     <header>

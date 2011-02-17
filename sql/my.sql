@@ -6,5 +6,5 @@ CREATE TABLE entry (
     html text,
     ctime int unsigned not null,
     mtime int unsigned not null
-) ENGINE=InnoDB DEFAULT CHARSET=utf-8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
