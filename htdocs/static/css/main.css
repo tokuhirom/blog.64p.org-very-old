@@ -300,3 +300,7 @@ body > footer {
   color: #cccccc; }
   body > footer a {
     color: #999999; }
+
+@media screen and (max-device-width: 480px) {
+  body {
+    width: 99%; } }
