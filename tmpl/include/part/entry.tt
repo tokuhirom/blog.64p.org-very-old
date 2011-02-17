@@ -5,5 +5,6 @@
         <div class="ctime">[% entry.ctime %]</div>
         <div class="permalink"><a href="/entry/[% entry.entry_id %]">permalink</a></div>
         <div class="admin"><a href="/admin/edit?entry_id=[% entry.entry_id %]">edit</a></div>
+        <div class="comment"><a href="/entry/[% entry.entry_id %]#disqus_thread">Comment</a></div>
     </footer>
 </section>
