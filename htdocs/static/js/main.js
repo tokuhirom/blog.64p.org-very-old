@@ -13,7 +13,6 @@ dispatcher('^/$', function () {
 });
 
 // entry page
-console.log("YAY");
 dispatcher('^/entry/([0-9]+)$', function (match) {
     var entry_id = match[1];
 
@@ -28,6 +27,22 @@ dispatcher('^/entry/([0-9]+)$', function (match) {
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         });
     }
+});
+
+// admin/add
+dispatcher('^/admin/add', function () {
+    $(function () {
+        if (window.localStorage) {
+            var textarea = $('textarea[name="body"]');
+            var last;
+            setInterval(function () {
+                var body = textarea.val();
+                if (body.length > 10) {
+                    localStorage.setItem('add', body);
+                }
+            }, 1000);
+        }
+    });
 });
 
 function dispatcher (path, func) {
