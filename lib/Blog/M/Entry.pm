@@ -73,6 +73,7 @@ sub format_entry {
         return $body; # nop
     }
     when ('hatena') {
+        $body =~ s/\r\n/\n/g; # Xatena does not support \r\n@0.08 -- tokuhirom@20110219
         my $xatena = Text::Xatena->new();
         return $xatena->format($body);
     }
