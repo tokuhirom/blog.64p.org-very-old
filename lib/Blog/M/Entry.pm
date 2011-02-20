@@ -6,7 +6,7 @@ use 5.12.2;
 package Blog::M::Entry;
 use Amon2::Declare;
 use Smart::Args;
-use Text::Xatena;
+use Blog::Formatter::Xatena;
 
 sub search {
     args my $class,
@@ -73,9 +73,7 @@ sub format_entry {
         return $body; # nop
     }
     when ('hatena') {
-        $body =~ s/\r\n/\n/g; # Xatena does not support \r\n@0.08 -- tokuhirom@20110219
-        my $xatena = Text::Xatena->new();
-        return $xatena->format($body);
+        return Blog::Formatter::Xatena->format($body);
     }
     default {
         die "unknown format: '$format'";
