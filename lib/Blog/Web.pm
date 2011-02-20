@@ -47,15 +47,11 @@ use HTTP::Session::Store::File;
 use File::Path qw/mkpath/;
 my $session_path = "/tmp/blog.session.$<";
 mkpath $session_path, 1;
+my $store = HTTP::Session::Store::File->new( dir => $session_path );
 __PACKAGE__->load_plugins('Web::HTTPSession' => {
     state => 'Cookie',
-    store => sub {
-        HTTP::Session::Store::File->new(
-            dir => $session_path
-        ),
-    }
+    store => $store,
 });
-# __PACKAGE__->load_plugins('Web::NoCache');
 
 # for your security
 __PACKAGE__->add_trigger(
