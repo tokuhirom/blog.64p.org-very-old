@@ -7,6 +7,7 @@ package Blog::M::Entry;
 use Amon2::Declare;
 use Smart::Args;
 use Blog::Formatter::Xatena;
+use Time::Piece;
 
 sub search {
     args my $class,
@@ -16,13 +17,18 @@ sub search {
          ;
 
     my $entries = $c->dbh->selectall_arrayref(
-        q{SELECT entry_id, title, body, html, mtime FROM entry ORDER BY entry_id DESC LIMIT ? OFFSET ?},
+        q{SELECT entry_id, title, body, html, ctime FROM entry ORDER BY entry_id DESC LIMIT ? OFFSET ?},
         {Slice => {}},
         $entries_per_page + 1,
         $entries_per_page * ($current_page-1),
     );
     my $has_next = ( $entries_per_page + 1 == @$entries );
     if ($has_next) { pop @$entries }
+
+    for (@$entries) {
+        $_->{ctime} = Time::Piece->new($_->{ctime})->strftime('%Y-%m-%d(%a) %H:%M');
+    }
+
     return ($entries, $has_next);
 }
 
@@ -33,10 +39,12 @@ sub retrieve {
          ;
 
     my ($entry) = @{$c->dbh->selectall_arrayref(
-        q{SELECT entry_id, title, body, html, mtime FROM entry WHERE entry_id=? ORDER BY entry_id DESC LIMIT 1},
+        q{SELECT entry_id, title, body, html, ctime FROM entry WHERE entry_id=? ORDER BY entry_id DESC LIMIT 1},
         {Slice => {}},
         $entry_id
     )};
+    return unless $entry;
+    $entry->{ctime} = Time::Piece->new($entry->{ctime})->strftime('%Y-%m-%d(%a) %H:%M');
     return $entry;
 }
 
@@ -52,7 +60,7 @@ sub insert {
     my $html = $class->format_entry(format => $format, body => $body);
     $c->dbh->insert(
         entry => {
-            title  => $title,
+            title  => $title || 'no title',
             body   => $body,
             html   => $html,
             format => $format,

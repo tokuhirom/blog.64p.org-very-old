@@ -17,6 +17,10 @@ body > header {
 section {
     margin-bottom: 20px;
 
+    a {
+        text-decoration: none;
+    }
+
     .entry-header {
         font-size: 140%;
         margin-bottom: 20px;
@@ -33,8 +37,11 @@ section {
     }
 
     footer {
+        text-align: right;
+
         & > div {
             display: inline;
+            padding-right: 4px;
         }
     }
 }

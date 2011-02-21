@@ -283,6 +283,8 @@ body > header {
 
 section {
   margin-bottom: 20px; }
+  section a {
+    text-decoration: none; }
   section .entry-header {
     font-size: 140%;
     margin-bottom: 20px; }
@@ -292,8 +294,11 @@ section {
   section b {
     font-weight: bold;
     font-size: 140%; }
-  section footer > div {
-    display: inline; }
+  section footer {
+    text-align: right; }
+    section footer > div {
+      display: inline;
+      padding-right: 4px; }
 
 body > footer {
   text-align: right;
