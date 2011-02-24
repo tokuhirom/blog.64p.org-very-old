@@ -2,6 +2,7 @@ package Blog::Web;
 use strict;
 use warnings;
 use parent qw/Blog Amon2::Web/;
+use Log::Minimal;
 
 # load all controller classes
 use Module::Find ();
@@ -34,6 +35,8 @@ use Tiffany::Text::Xslate;
             uri_with => sub { Amon2->context()->req->uri_with(@_) },
             uri_for  => sub { Amon2->context()->uri_for(@_) },
         },
+        warn_handler => sub { warnf('%s', @_) },
+        die_handler => sub { critf('%s', @_) },
         %$view_conf
     });
     sub create_view { $view }
